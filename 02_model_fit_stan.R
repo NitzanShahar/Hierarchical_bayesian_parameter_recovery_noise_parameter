@@ -18,8 +18,8 @@ detectCores()
                 data=data_for_stan, 
                 iter=2000,
                 warmup = 1000,
-                chains=1,
-                cores =1) 
+                chains=6,
+                cores =6) 
 
   end_time <- Sys.time()
   end_time-start_time

@@ -26,7 +26,7 @@ p2= ggplot(data.frame(x=pars$population_scales[,1]),aes(x=x))+geom_density(alpha
         xlim(0,1)+  xlab(expression(beta['scale']))+ theme_classic()
 
 
-annotate_figure(ggarrange(p1,p2,nrow=2,ncol=2), 
+annotate_figure(ggarrange(p1,p2,nrow=1,ncol=2), 
                 top = text_grob("Population Level Parameters (fixed effects)", color = "black", face = "bold", size = 10))
 
 #-------------------------------------------------------------------------------------------------------------
@@ -41,6 +41,6 @@ p1=ggplot(data.frame(x =true.parameters[,'beta'], y =apply(pars$beta, 2, mean)),
     xlim(0,10)+ylim(0,10)+
     theme_classic()
 
-annotate_figure(ggarrange(p1,p2,nrow=1,ncol=2), 
+annotate_figure(ggarrange(p1,nrow=1,ncol=1), 
                 top = text_grob("Individual Level Parameters (random effects)", color = "black", face = "bold", size = 10))
 

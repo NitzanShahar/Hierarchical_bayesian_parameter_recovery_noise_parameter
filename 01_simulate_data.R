@@ -10,7 +10,7 @@
 rm(list=ls())
 
 model_name =c('only_softmax')
-Nsubjects  =10
+Nsubjects  =400
 
 #-------------------------------------------------------------------------------------------------------------
 # Part A: Generate true population and individual level parameters
