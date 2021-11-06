@@ -16,8 +16,8 @@ detectCores()
 
     rl_fit<- stan(file = './models/only_softmax.stan', 
                 data=data_for_stan, 
-                iter=20,
-                warmup = 10,
+                iter=2000,
+                warmup = 1000,
                 chains=1,
                 cores =1) 
 
