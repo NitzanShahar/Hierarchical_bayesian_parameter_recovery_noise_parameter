@@ -1,4 +1,4 @@
-# Qlearning_hierarchical_fitting_with_stan_only_beta
+# Recovering a noise parameter with Hierarchical Bayesian Modeling in Stan
  Recovery of noise parameter in a softmax. This is a very basic sanity check - no RL modeling. 
 
 ## 01_simulate_data.R 
