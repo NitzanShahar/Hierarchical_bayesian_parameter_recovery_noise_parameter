@@ -10,7 +10,7 @@
 rm(list=ls())
 
 model_name =c('only_softmax')
-Nsubjects  =400
+Nsubjects  =1000
 
 #-------------------------------------------------------------------------------------------------------------
 # Part A: Generate true population and individual level parameters
@@ -41,8 +41,8 @@ Nsubjects  =400
 # Part B: Simulate data based on task values and individual parameters from previous section
 
 #run simulation
-  cfg=list(Nblocks             =1,
-           Ntrials_perblock    =500)
+  cfg=list(Nblocks             =2,
+           Ntrials_perblock    =100)
   
   
 source('./models/simulation_only_softmax.R')
@@ -98,6 +98,8 @@ save(data_for_stan,file=paste('./data/',model_name,'_standata.Rdata',sep=""))
 # Part D: Run some basic sanity checks using linear / logistic regression
 library(dplyr)
 library(tidyr)
+
+
 library(ggplot2)
 library(lme4)
 library(effects)

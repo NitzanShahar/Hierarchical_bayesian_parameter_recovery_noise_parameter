@@ -18,11 +18,11 @@ library(ggpubr)
 
 p1= ggplot(data.frame(x=pars$population_locations[,1]),aes(x=x))+geom_density(alpha = .5,fill="pink")+ 
         geom_vline(xintercept = 1, linetype="dotted",color = "blue", size=1.5)+
-        xlim(0,2)+ xlab(expression(beta['location']))+ theme_classic()
+        xlim(0.5,1.5)+ xlab(expression(beta['location']))+ theme_classic()
 
 
 p2= ggplot(data.frame(x=pars$population_scales[,1]),aes(x=x))+geom_density(alpha = .5,fill="pink")+ 
-        geom_vline(xintercept = 0.5 , linetype="dotted",color = "blue", size=1.5)+
+        geom_vline(xintercept = .5 , linetype="dotted",color = "blue", size=1.5)+
         xlim(0,1)+  xlab(expression(beta['scale']))+ theme_classic()
 
 

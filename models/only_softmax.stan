@@ -45,6 +45,7 @@ model {
   
   
   
+  
   //Likelihood function per subject per trial
 
   for (subject in 1:Nsubjects){
@@ -57,7 +58,8 @@ model {
           Qoffer[2]=Q2[subject,trial];
 
         //liklihood function according to a softmax policy and subject's choices
-         target +=log_softmax(beta[subject] * Qoffer)[action[subject, trial]];
+         //target +=log_softmax(beta[subject] * Qoffer)[action[subject, trial]];
+         action[subject, trial] ~ categorical_logit(beta[subject] * Qoffer);
       } 
     }
 }
