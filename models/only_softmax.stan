@@ -28,10 +28,19 @@ parameters {
   vector<lower=0>[Nparameters] population_scales;    //a vector with scaling for learning rate and noise parameters
   
   //individuals level parameters
-  vector<lower=0> [Nsubjects] beta;                //noise parameter
+  vector         [Nsubjects] beta_random_effect;    //noise parameter
 }
 
 
+transformed parameters {
+  vector<lower=0>[Nsubjects] beta ; //noise parameter
+
+  //transform from unbounded scale to a natural scale of 0 to 1
+  for (subject in 1:Nsubjects) {
+    beta [subject]   = exp(population_locations[1]  + population_scales[1]  * beta_random_effect[subject]);//
+
+  }
+}
 
 
 model {
@@ -41,7 +50,7 @@ model {
   
 
   //indvidual level priors
-  beta  ~ lognormal(population_locations[1],population_scales[1]);
+  beta_random_effect  ~ std_normal();  // similar to ~ normal(0,1)
   
   
   

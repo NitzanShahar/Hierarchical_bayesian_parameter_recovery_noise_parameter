@@ -10,7 +10,7 @@
 rm(list=ls())
 
 model_name =c('only_softmax')
-Nsubjects  =1000
+Nsubjects  =100
 
 #-------------------------------------------------------------------------------------------------------------
 # Part A: Generate true population and individual level parameters
@@ -21,7 +21,7 @@ Nsubjects  =1000
 
 
   #individual parameters 
-  beta           = rlnorm(Nsubjects,population_locations[1],population_scales[1])
+  beta           = exp(population_locations[1]+population_scales[1]*rnorm(Nsubjects))
 
   #check histograms and sample means
   print(mean(beta))
